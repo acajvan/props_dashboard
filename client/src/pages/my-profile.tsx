@@ -1,6 +1,5 @@
 import React from 'react'
 import { useGetIdentity, useOne } from '@pankod/refine-core'
-import { Box, Stack, Typography } from '@mui/material'
 import { Profile } from 'components'
 
 

@@ -74,7 +74,7 @@ const PropertyDetails = () => {
         <Box width="100%" flex={1} maxWidth={326} display="flex" flexDirection="column" gap="20px">
           <Stack width="100%" p={2} direction="column" alignItems="center" border="1px solid #E4E4E4" borderRadius={2} gap="10px">
             <Stack mt={2} justifyContent="center" alignItems="center" textAlign="center">
-              <img src={PropertyDetails.creator.avatar} width={90} height={90} style={{ borderRadius: '100%', objectFit: 'cover'}} />
+              <img src={PropertyDetails.creator.avatar} alt="avatar" width={90} height={90} style={{ borderRadius: '100%', objectFit: 'cover'}} />
               <Box mt="15px">
                 <Typography fontSize={18} fontWeight={600} color="#11142D">{PropertyDetails.creator.name}</Typography>
                 <Typography fontSize={14} color="#808191">{PropertyDetails.creator.email}</Typography>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useList } from '@pankod/refine-core'
-import { bgcolor, Box, Typography } from '@pankod/refine-mui'
+import { Box, Typography } from '@pankod/refine-mui'
 import { AgentCard } from 'components'
 
 const Agents = () => {
