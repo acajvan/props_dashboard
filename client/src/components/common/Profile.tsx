@@ -1,9 +1,8 @@
 import React from 'react'
 import { Email, Phone, Place } from '@mui/icons-material';
 import { Box, Stack, Typography } from '@pankod/refine-mui';
+import { ProfileProps } from 'interfaces/common';
 
-import { ProfileProps, PropertyProps } from 'interfaces/common';
-import PropertyCard from './PropertyCard';
 
 function checkImage(url: any) {
   let img = new Image();
@@ -11,7 +10,7 @@ function checkImage(url: any) {
   return img.width !== 0 && img.height !== 0;
 }
 
-const Profile = ({ type, name, avatar, email, properties }: ProfileProps) => (
+const Profile = ({ type, name, avatar, email }: ProfileProps) => (
   <Box>
     <Typography fontSize={25} fontWeight={700} color="#11142D">{type} Profile</Typography>
 
@@ -87,7 +86,6 @@ const Profile = ({ type, name, avatar, email, properties }: ProfileProps) => (
       </Box>
     </Box>
 
-    {properties.length > 0 && (
     <Box
       mt={2.5}
       borderRadius="15px"
@@ -104,17 +102,9 @@ const Profile = ({ type, name, avatar, email, properties }: ProfileProps) => (
           gap: 2.5,
         }}
       >
-        {properties?.map((property: PropertyProps) => (
-          <PropertyCard key={property._id} id={property._id}
-            title={property.title}
-            location={property.location}
-            price={property.price}
-            photo={property.photo}
-          />
-        ))}
       </Box>
     </Box>
-    )}
+
   </Box>
 );
 

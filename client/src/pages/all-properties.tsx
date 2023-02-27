@@ -1,5 +1,5 @@
 import React from 'react'
-import { Add } from '@mui/icons-material'
+import { Add, DarkMode } from '@mui/icons-material'
 import { useTable } from '@pankod/refine-core'
 import { Box, Stack, TextField, Typography, Select, MenuItem } from '@pankod/refine-mui'
 import { useNavigate } from '@pankod/refine-react-router-v6'
@@ -77,7 +77,7 @@ const AllProperties = () => {
           </Box>
         </Stack>
       </Box>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
+      <Stack direction="column" justifyContent="flex-end" alignItems="flex-end" display="flex">
         <CustomButton title="Add Property" handleClick={() => { navigate('/properties/create') }} backgroundColor="#475be8" color="#fcfcfc" icon={<Add />} />
       </Stack>
       <Box mt="20px" sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>

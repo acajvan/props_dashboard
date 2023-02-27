@@ -69,7 +69,6 @@ export const Login: React.FC = () => {
             <img width={300} height={300} src={sinologyv3} alt="Sinology Logo" />
           </div>
           <Box mt={2}>
-            <GoogleButton />
           </Box>
         </Box>
       </Container>

@@ -1,22 +1,17 @@
-import React, { useContext } from "react";
-import { useGetIdentity } from "@pankod/refine-core";
+import React from "react";
+
 import {
   AppBar,
-  IconButton,
   Stack,
   Toolbar,
   Typography,
-  Avatar,
 } from "@pankod/refine-mui";
-import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
 
-import { ColorModeContext } from "contexts";
+import { AccountCircle } from "@mui/icons-material";
 
 export const Header: React.FC = () => {
-  const { mode, setMode } = useContext(ColorModeContext);
 
-  const { data: user } = useGetIdentity();
-  const shouldRenderHeader = true; // since we are using the dark/light toggle; we don't need to check if user is logged in or not.
+  const shouldRenderHeader = true; 
 
   return shouldRenderHeader ? (
     <AppBar color="default" position="sticky" elevation={0} sx={{ background: '#FCFCFC'}}>
@@ -33,12 +28,8 @@ export const Header: React.FC = () => {
             alignItems="center"
             justifyContent="center"
           >
-            {user?.name ? (
-              <Typography variant="subtitle2">{user?.name}</Typography>
-            ) : null}
-            {user?.avatar ? (
-              <Avatar src={user?.avatar} alt={user?.name} />
-            ) : null}
+              <Typography variant="subtitle2">Admin</Typography>
+              <AccountCircle fontSize="large" color="info" />
           </Stack>
         </Stack>
       </Toolbar>

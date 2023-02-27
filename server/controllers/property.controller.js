@@ -49,35 +49,7 @@ const getPropertyDetail = async (req, res) => {
 
 
 // Create Property
-const createProperty = async (req, res) => {
-
- try {
- const { title, description, propertyType, location, price, photo, email } = req.body;
- const session = await mongoose.startSession()
- session.startTransaction();
- const user = await User.findOne({ email }).session(session)
- if(!user) throw new Error('User not found!');
-
- const photoUrl = await cloudinary.uploader.upload(photo);
-
- const newProperty = await Property.create({
-  title,
-  description,
-  price,
-  propertyType,
-  location,
-  photo: photoUrl.url,
-  creator: user._id
- })
-
- user.allProperties.push(newProperty._id);
- await user.save({ session });
- await session.commitTransaction();
- res.status(200).json({ message: 'Property created successfully'});
- } catch (error) {
-  res.status(500).json({ message: error.message });
- }
-};
+const createProperty = async (req, res) => {};
 
 
 // Edit Property

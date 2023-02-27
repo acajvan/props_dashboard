@@ -1,7 +1,6 @@
 import React from 'react'
 import { AgentCardProp, InfoBarProps } from 'interfaces/agent'
 import { EmailOutlined, LocationCity, Phone, Place } from '@mui/icons-material'
-import { useGetIdentity } from '@pankod/refine-core'
 import { Box, Stack, Typography } from '@mui/material'
 import { Link } from '@pankod/refine-react-router-v6'
 
@@ -12,20 +11,13 @@ const InfoBar = ({ icon, name }: InfoBarProps) => (
   </Stack>
 )
 
-const AgentCard = ({ id, name, email, avatar, noOfProperties }: AgentCardProp) => {
-  const { data: currentUser } = useGetIdentity();
-  const generateLink = () => {
-    if (currentUser.email === email) {
-      return '/my-profile'
-    } else {
-      return `/agents/show/${id}`
-    }
-  }
+const AgentCard = ({ id, name, avatar, noOfProperties }: AgentCardProp) => {
+
 
   return (
     <Box
       component={Link}
-      to={generateLink()}
+      to={`/agents/show/${id}`}
       width="100%"
       sx={{
         display: 'flex',
@@ -44,9 +36,9 @@ const AgentCard = ({ id, name, email, avatar, noOfProperties }: AgentCardProp) =
           <Typography fontSize={14} color="#808191"> Real-Estate Agent </Typography>
         </Stack>
         <Stack gap={2} direction="row" flexWrap="wrap" justifyContent="space-between" alignItems="center">
-          <InfoBar icon={<EmailOutlined sx={{ color: "#808191" }} />} name={email} />
+          <InfoBar icon={<EmailOutlined sx={{ color: "#808191" }} />} name="admin@cajvan.com" />
           <InfoBar icon={<Place />} name="Iasi" />
-          <InfoBar icon={<Phone />} name="+4 07585958" />
+          <InfoBar icon={<Phone />} name="+40 711222333" />
           <InfoBar icon={<LocationCity />} name={`${noOfProperties} Properties`} />
         </Stack>
       </Stack>
